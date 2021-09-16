@@ -11,7 +11,7 @@ const App = () => {
         return () => window.removeEventListener("load", handleLoading);
     }, []);
 
-    return isLoading ? "Loading" : " Content";
+    return !isLoading ? "Loading" : " Content";
 };
 
 export default App;

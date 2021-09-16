@@ -1,19 +1,13 @@
-import { useEffect, useState } from "react";
-const App = () => {
-    const [isLoading, setIsLoading] = useState(true);
+import React, { useEffect, useState } from "react";
 
-    const handleLoading = () => {
-        setIsLoading(false);
-    };
+export default function App() {
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        window.addEventListener("load", handleLoading);
-        return () => window.removeEventListener("load", handleLoading);
-    }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
-    return !isLoading ? "Loading" : " Content";
-};
-
-export default App;
-
-
+  return <div>{loading ? "loading..." : "hello"}</div>;
+}
